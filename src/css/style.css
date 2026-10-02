@@ -220,3 +220,19 @@ body {
     color: #94a3b8;
     margin-top: auto;
 }
+
+/* --- CARTE LEAFLET --- */
+#map {
+    height: 500px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1; /* Maintient la carte sous le header au scroll */
+    margin-bottom: 1.5rem;
+}
+
+.leaflet-popup-content h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
