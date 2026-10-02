@@ -3,142 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Découvrez Maubeuge - Carte Interactive</title>
-    
-    <!-- Tailwind CSS pour le style moderne -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Police d'écriture Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
     
     <!-- CSS de Leaflet (obligatoire pour l'affichage de la carte) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
      
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Découvrir La Ville - SAE 106</title>
 </head>
-<body class="text-slate-800 antialiased min-h-screen flex flex-col">
+<body>
 
-    <header class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white shadow-md">
+    <header class="main-header">
         <nav class="site-nav" aria-label="Navigation principale">
-            <a class="site-brand" href="./index.html" aria-label="SAE 106, accueil">
+            <a class="site-brand" href="../../index.html" aria-label="SAE 106, accueil">
                 <span class="brand-mark" aria-hidden="true">106</span>
                 <span>SAE <strong>106</strong></span>
             </a>
             <ul class="nav-links">
-                <li><a href="../../index.html" aria-current="page">Accueil</a></li>
-                <li><a href="./map.html">Découvrir La Ville</a></li>
+                <li><a href="../../index.html">Accueil</a></li>
+                <li><a href="./map.html" aria-current="page">Découvrir La Ville</a></li>
                 <li><a href="./organisations.html">Organisations</a></li>
                 <li><a href="./ecologie.html">Écologie</a></li>
                 <li><a href="./demarche.html">Notre Démarche</a></li>
                 <li><a href="./charte.html">Charte Numérique</a></li>
             </ul>
         </nav>
-        <div class="max-w-6xl mx-auto px-6 py-12 md:py-16 text-center md:text-left flex flex-col md:flex-row items-center justify-between">
-            <div class="md:w-2/3">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Bienvenue à Maubeuge</h1>
-                <p class="text-lg md:text-xl text-blue-100 font-light max-w-2xl">
-                    Découvrez la perle du Nord, une ville riche d'histoire, traversée par la Sambre et célèbre pour ses fortifications majestueuses.
-                </p>
-            </div>
-            <div class="mt-8 md:mt-0 hidden md:block">
-                <!-- Illustration décorative simple (blason simplifié / icône) -->
-                <svg class="w-32 h-32 text-white/20" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5zM12 11.5L7.5 16h9L12 11.5z"></path>
-                </svg>
-            </div>
-        </div>
     </header>
 
-    <main class="flex-grow max-w-6xl mx-auto px-6 py-10 w-full">
+    <main>
+        <!-- En-tête de la page unifié -->
+        <section class="hero-section">
+            <div class="container text-center">
+                <h1>Bienvenue à Maubeuge</h1>
+                <p class="subtitle">Découvrez la perle du Nord, une ville riche d'histoire, traversée par la Sambre et célèbre pour ses fortifications majestueuses.</p>
+            </div>
+        </section>
         
-        <section class="mb-12 bg-white rounded-2xl shadow-sm p-8 border border-slate-100">
-            <h2 class="text-2xl font-bold text-slate-800 mb-4 border-b pb-2 border-slate-100">À propos de la ville</h2>
-            <p class="text-slate-600 leading-relaxed mb-4 text-justify">
-                Située dans le département du Nord, en région Hauts-de-France, Maubeuge est une commune au patrimoine exceptionnel. Reconstruite après la Seconde Guerre mondiale par l'architecte André Lurçat, elle offre un visage moderne tout en conservant les traces de son passé militaire glorieux. 
-            </p>
-            <p class="text-slate-600 leading-relaxed text-justify">
-                Promenez-vous le long des berges de la Sambre, explorez les impressionnants remparts dessinés par le célèbre ingénieur Vauban au XVIIe siècle, ou visitez le Zoo de Maubeuge, atypiquement niché au cœur même de ces fortifications historiques. Utilisez la carte interactive ci-dessous pour localiser ces points d'intérêt majeurs.
-            </p>
+        <!-- Section texte classique -->
+        <section class="content-section bg-white">
+            <div class="container section-grid">
+                <div class="section-text">
+                    <h2>À propos de la ville</h2>
+                    <p>Située dans le département du Nord, en région Hauts-de-France, Maubeuge est une commune au patrimoine exceptionnel. Reconstruite après la Seconde Guerre mondiale par l'architecte André Lurçat, elle offre un visage moderne tout en conservant les traces de son passé militaire glorieux.</p>
+                    <p>Promenez-vous le long des berges de la Sambre, explorez les impressionnants remparts dessinés par le célèbre ingénieur Vauban au XVIIe siècle, ou visitez le Zoo de Maubeuge, atypiquement niché au cœur même de ces fortifications historiques. Utilisez la carte interactive ci-dessous pour localiser ces points d'intérêt majeurs.</p>
+                </div>
+            </div>
         </section>
 
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
-                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
-                Explorez Maubeuge
-            </h2>
-            
-            <!-- Le conteneur de la carte -->
-            <div class="bg-white p-2 rounded-2xl shadow-md border border-slate-200">
-                <div id="map" class="rounded-xl overflow-hidden"></div>
+        <!-- Section Carte -->
+        <section class="content-section bg-light">
+            <div class="container section-grid">
+                <div class="section-text" style="max-width: 1000px; width: 100%;">
+                    <h2>Explorez Maubeuge</h2>
+                    
+                    <!-- Le conteneur de la carte -->
+                    <div id="map"></div>
+                    
+                    <p>Cliquez sur les marqueurs bleus pour afficher plus d'informations sur chaque lieu.</p>
+                </div>
             </div>
-            <p class="text-sm text-slate-500 mt-3 text-center">
-                Cliquez sur les marqueurs bleus pour afficher plus d'informations sur chaque lieu.
-            </p>
         </section>
         
     </main>
 
-    <footer class="bg-slate-900 text-slate-400 py-8 mt-auto">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <p>&copy; 2026 - Présentation de Maubeuge. Carte propulsée par Leaflet et OpenStreetMap.</p>
-        </div>
+    <footer class="main-footer">
+        <p>&copy; SAE 106 - 2026</p>
     </footer>
 
-    <!-- Script JavaScript de Leaflet (doit être chargé après le CSS) -->
+    <!-- Script JavaScript de Leaflet -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
 
     <script>
-        // On s'assure que le DOM est complètement chargé avant d'initialiser la carte
         document.addEventListener('DOMContentLoaded', function() {
-            
-            // 1. Initialisation de la carte
-            // Les coordonnées [50.2775, 3.9731] correspondent au centre de Maubeuge
-            // Le "15" correspond au niveau de zoom initial (plus le nombre est grand, plus on est près)
             var map = L.map('map').setView([50.2775, 3.9731], 15);
 
-            // 2. Ajout d'une couche de tuiles (le fond de carte visuel)
-            // Nous utilisons OpenStreetMap qui est gratuit et très détaillé
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
 
-            // 3. Définition des icônes personnalisées (optionnel, on utilise ici l'icône par défaut de Leaflet avec des popups stylisés)
-            
-            // 4. Ajout des marqueurs pour les points d'intérêt demandés
-
-            // Marqueur pour le Zoo de Maubeuge
             var markerZoo = L.marker([50.2825, 3.9758]).addTo(map);
-            markerZoo.bindPopup(`
-                <div class="text-center">
-                    <h3 class="font-bold text-lg text-blue-700">Zoo de Maubeuge</h3>
-                    <p class="text-sm mt-1">Un parc animalier unique de 7 hectares situé en plein cœur des remparts.</p>
-                </div>
-            `);
+            markerZoo.bindPopup('<h3>Zoo de Maubeuge</h3><p>Un parc animalier unique de 7 hectares situé en plein cœur des remparts.</p>');
 
-            // Marqueur pour les Remparts de Vauban
             var markerRemparts = L.marker([50.2783, 3.9722]).addTo(map);
-            markerRemparts.bindPopup(`
-                <div class="text-center">
-                    <h3 class="font-bold text-lg text-blue-700">Remparts de Vauban</h3>
-                    <p class="text-sm mt-1">Fortifications historiques dessinées par Vauban pour protéger la ville au XVIIe siècle.</p>
-                </div>
-            `);
+            markerRemparts.bindPopup('<h3>Remparts de Vauban</h3><p>Fortifications historiques dessinées par Vauban pour protéger la ville au XVIIe siècle.</p>');
 
-            // Marqueur pour la rivière La Sambre (placé près d'un point central de la rivière dans la ville)
             var markerSambre = L.marker([50.2750, 3.9700]).addTo(map);
-            markerSambre.bindPopup(`
-                <div class="text-center">
-                    <h3 class="font-bold text-lg text-blue-700">La Sambre</h3>
-                    <p class="text-sm mt-1">Fleuve emblématique traversant la ville, idéal pour de belles promenades sur les berges.</p>
-                </div>
-            `);
+            markerSambre.bindPopup('<h3>La Sambre</h3><p>Fleuve emblématique traversant la ville, idéal pour de belles promenades sur les berges.</p>');
 
-            // On ouvre par défaut le popup des remparts pour montrer l'interactivité dès le chargement
             markerRemparts.openPopup();
         });
     </script>
